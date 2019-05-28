@@ -1,22 +1,22 @@
+
 const Discord = require("discord.js");
+const  client = new Discord.Client();
 const config = require("./config.json");
 
-const  client = new Discord.Client();
-
 client.on("ready", () => {
-   console.log("IM RDY CONCHETUMARE!");
+   console.log("IM RDY CULIAITO!");
 });
-client.on("message", (message) => {
+var prefix = config.prefix;
 
-  if (!message.content.startsWith(prefix)) return;
+client.on("message", (message) => {
+  if (!message.content.startsWith(config.prefix)) return;
   if (message.author.bot) return;
 
-    if (message.content.startsWith("!play")) {
-    message.channel.send("y porque no me tocai la pichula mejor ql");
-  } else {
-    if (message.content.startsWith("!porn")){
-      message.channel.send("metete a xvideos mejor pajero conchetumare");
-    }
+  if (message.content.startsWith(prefix + "play")) {
+    message.channel.send("y porque no me tocai la pichula mejor conchetumare!");
+  } else
+  if (message.content.startsWith(prefix +"porn")) {
+    message.channel.send("metete a xvideos mejor pajero conchetumare");
   }
 });
 client.login(config.token);
